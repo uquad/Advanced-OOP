@@ -1,0 +1,51 @@
+A min-heap is a heap in which the root has the smallest value in the heap. Normally one would
+implement a heap using an array. In this assignment you are to use pointers, not an array. In
+our min-heap each node has a value and 0, 1 or 2 children heaps. The root node of a minheap
+contains the smallest value in the heap. If you pick any node in the heap it has a value
+that is equal to or less than all the nodes in either the left or right sub-heaps of the node. See
+the figure 1 below for an example. To add a new value to the heap add it to the top of the heap.
+If the heap is empty the new value becomes the root. If heap is not empty then the smaller of
+the two values (current value in heap and the new value) is kept in the root. The larger of the
+two values is added the sub-heap with the smallest height. If both sub-heaps have the same
+height then the larger of the two values is added to the left heap. The process is repeated until
+a value is added to a new node at the bottom of the heap. 
+
+Part 1.
+
+Your code is to have the following functionality:
+1. Add strings to your min-heap. There is no need to implement delete.
+2. Print out the values in the heap in preorder (root, the left sub-heap, right sub-heap).
+3. Print out the strings that end in "ing" in the heap in preorder.
+
+Don't store the heap in an array or vector like structure. Do not convert the heap into an array
+or vector like structure to traverse the heap.
+
+
+Part 2 -The goal of this assignment is to improve on part1 one and implement Iterator, null
+object, decorator and strategy patterns.
+
+1.The heap class is a collection. Determine the correct location in your language’s collection
+class hierarchy. Find all methods that you need to implement in-order to add your class in
+the language’s collection class hierarchy. (C++ people get a pass on this problem as STL is
+painful to subclass.)
+
+
+2. Use the strategy pattern to allow your heap to be either a min heap or a max heap.
+
+3. Implement an iterator for your heap. Using an in-order traversal will be easier than preorder
+or post-order. Don't covert your heap to an array or other collection to implement your
+iterator.
+
+4. Use the null object pattern to remove null checks when finding the height of the heap. Can
+you remove other null checks?
+
+5. Implement what we will for now will call IngFilter. Using Java syntax the class will have the
+methods given below. People using other languages may need to implement different
+methods to conform to their language's conventions.
+IngFilter(Iterator input) - constructor
+boolean hasNext() - returns true if the iteration has more elements that end in "ing".
+next() - returns the next element in the iteration that ends in "ing".
+
+6. Create a decorator class IngHeapDecorator that decorates your new Heap class. The
+decorator modifies the toString, toArray and iterator methods to return just elements ending
+in "ing. Does this make sense as a decorator?
